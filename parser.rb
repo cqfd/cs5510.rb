@@ -69,12 +69,11 @@ end
 
 # This is a small wrapper around what TreeTop provides automatically.
 module Parser
-  class NotSureWhatThisIs < Exception
-  end
   # string -> ExprS | nil
   def self.parse(s)
     desugar(ArithmeticParser.new.parse(s))
   end
+
   # ArithS -> ArithC
   def self.desugar(e)
     case e
@@ -91,5 +90,8 @@ module Parser
     else
       raise NotSureWhatThisIs
     end
+  end
+
+  class NotSureWhatThisIs < Exception
   end
 end
