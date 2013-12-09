@@ -1,9 +1,8 @@
 require_relative 'parser'
 
-class NotSureWhatThisIs < Exception
-end
-
 module Interpreter
+  class NotSureWhatThisIs < Exception
+  end
   # expression -> int
   def self.interpret(e)
     case e

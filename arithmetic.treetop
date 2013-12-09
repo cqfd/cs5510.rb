@@ -1,18 +1,22 @@
 grammar Arithmetic
   rule expression
-    plus / mult / number
-  end
-
-  rule plus
-    '{' space? '+' space l:expression space r:expression space? '}' <PlusC>
-  end
-
-  rule mult
-    '{' space? '*' space l:expression space r:expression space? '}' <MultC>
+    number / plus / bminus / mult
   end
 
   rule number
-    '-'? [1-9] [0-9]* <NumC>
+    '-'? [1-9] [0-9]* <NumS>
+  end
+
+  rule plus
+    '{' space? '+' space l:expression space r:expression space? '}' <PlusS>
+  end
+
+  rule bminus
+    '{' space? '-' space l:expression space r:expression space? '}' <BminusS>
+  end
+
+  rule mult
+    '{' space? '*' space l:expression space r:expression space? '}' <MultS>
   end
 
   rule space
