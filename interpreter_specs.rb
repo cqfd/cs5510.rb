@@ -14,5 +14,7 @@ class InterpreterTests < MiniTest::Unit::TestCase
   def test_binary_minus_desugaring
     e = Parser.parse('{- 2 1}')
     assert_equal(1, Interpreter.interpret(e))
+    e = Parser.parse('{- 2 {- 3 4}}')
+    assert_equal(3, Interpreter.interpret(e))
   end
 end
