@@ -1,0 +1,21 @@
+grammar Arithmetic
+  rule expression
+    plus / mult / number
+  end
+
+  rule plus
+    '{' space? '+' space l:expression space r:expression space? '}' <PlusC>
+  end
+
+  rule mult
+    '{' space? '*' space l:expression space r:expression space? '}' <MultC>
+  end
+
+  rule number
+    '-'? [1-9] [0-9]* <NumC>
+  end
+
+  rule space
+    [ \t]+
+  end
+end
